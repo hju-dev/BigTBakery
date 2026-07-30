@@ -170,7 +170,8 @@ h1,h2,h3,h4{font-family:var(--font-display);line-height:1.05;color:var(--choc);f
 
 /* ============================================================ ORDER (the signature block) */
 .order{background:linear-gradient(180deg,var(--milk),var(--cream))}
-.order-grid{display:grid;grid-template-columns:1.3fr .9fr;gap:30px;align-items:start}
+.order-grid{display:grid;grid-template-columns:1.3fr .9fr;gap:30px;align-items:start;min-width:0}
+.order-grid>*{min-width:0}
 .menu-panel{display:flex;flex-direction:column;gap:14px}
 .menu-item{
   display:flex;align-items:center;gap:16px;background:var(--milk);
@@ -250,10 +251,10 @@ h1,h2,h3,h4{font-family:var(--font-display);line-height:1.05;color:var(--choc);f
 .seg{display:flex;background:var(--cream);border:2px solid var(--line);border-radius:999px;padding:3px}
 .seg button{flex:1;padding:.5rem;border-radius:999px;font-weight:800;color:var(--brown);background:transparent;font-family:var(--font-display)}
 .seg button.active{background:var(--gold);color:var(--choc)}
-.field{margin-top:12px}
+.field{margin-top:12px;min-width:0}
 .field label{display:block;font-weight:700;font-size:.85rem;margin-bottom:5px}
 .field input,.field textarea,.field select{
-  width:100%;padding:.6rem .7rem;border:2px solid var(--line);border-radius:10px;
+  width:100%;max-width:100%;min-width:0;box-sizing:border-box;padding:.6rem .7rem;border:2px solid var(--line);border-radius:10px;
   font-family:var(--font-body);font-size:.95rem;background:#fff;color:var(--ink);
 }
 .field input:focus,.field textarea:focus,.field select:focus{border-color:var(--gold);outline:none}

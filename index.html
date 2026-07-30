@@ -307,7 +307,15 @@ h1,h2,h3,h4{font-family:var(--font-display);line-height:1.05;color:var(--choc);f
 .info-block h4{color:var(--gold);font-size:1.1rem;margin-bottom:.3rem;margin-top:1.2rem}
 .info-block h4:first-child{margin-top:0}
 .info-block p{color:rgba(246,236,214,.9)}
-.email-link{color:var(--gold);font-weight:700;text-decoration:underline;text-decoration-color:rgba(232,169,58,.4)}
+.email-link{color:var(--gold);font-weight:700;text-decoration:underline;text-decoration-color:rgba(232,169,58,.4);word-break:break-word}
+.email-pill{
+  display:inline-flex;align-items:center;gap:.4rem;max-width:100%;
+  background:rgba(246,236,214,.12);border:1.5px solid rgba(232,169,58,.4);
+  color:var(--gold);font-weight:700;font-size:.92rem;
+  padding:.55rem 1rem;border-radius:999px;
+  text-decoration:none;overflow-wrap:anywhere;line-height:1.3;
+}
+.email-pill:hover{background:var(--gold);color:var(--choc);border-color:var(--gold)}
 .email-link:hover{color:var(--cream)}
 .socials{display:flex;gap:12px;margin-top:16px}
 .line-order{display:flex;gap:16px;align-items:center;margin-top:20px;background:rgba(246,236,214,.1);border:2px solid rgba(232,169,58,.35);border-radius:14px;padding:16px}
@@ -955,7 +963,7 @@ function renderContact(){
   document.getElementById("cInfoAllergen").innerHTML = cfg('allergenNote');
   const em = CONFIG.contactEmail;
   document.getElementById("cInfoEmail").innerHTML = em
-    ? `<a href="mailto:${em}" class="email-link">${em}</a>` : `<span class="todo">Add contact email in CONFIG</span>`;
+    ? `<a href="mailto:${em}" class="email-pill">✉ ${em}</a>` : `<span class="todo">Add contact email in CONFIG</span>`;
   document.getElementById("faqLead").innerHTML = td(cfg('leadTime'));
   const feeStr = CONFIG.deliveryFee===null ? `<span class="todo">${I18N[lang].delivery_tbc}</span>`
     : I18N[lang].delivery_fee(money(CONFIG.deliveryFee), CONFIG.freeDeliveryOver?money(CONFIG.freeDeliveryOver):null);
